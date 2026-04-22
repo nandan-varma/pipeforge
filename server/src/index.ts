@@ -2,6 +2,7 @@ import 'dotenv/config'
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import { migrate } from './db/migrate.js'
+import generateRoute from './routes/generate.js'
 
 await migrate()
 
@@ -10,6 +11,13 @@ const fastify = Fastify({ logger: { level: 'info' } })
 await fastify.register(cors, {
   origin: 'http://localhost:5173',
 })
+
+await fastify.register(
+  async (app) => {
+    await app.register(generateRoute)
+  },
+  { prefix: '/api' }
+)
 
 fastify.get('/health', async () => ({ ok: true }))
 
