@@ -3,6 +3,7 @@ import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import { migrate } from './db/migrate.js'
 import generateRoute from './routes/generate.js'
+import migrateRoute from './routes/migrate.js'
 
 await migrate()
 
@@ -15,6 +16,7 @@ await fastify.register(cors, {
 await fastify.register(
   async (app) => {
     await app.register(generateRoute)
+    await app.register(migrateRoute)
   },
   { prefix: '/api' }
 )
