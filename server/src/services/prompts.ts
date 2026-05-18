@@ -24,3 +24,12 @@ Rules:
 - Add a comment on any step where the mapping is approximate
 - Always pin action versions (actions/checkout@v4, not @main)
 - Use environment variables for secrets, never hardcode values`
+
+export const DEBUG_SYSTEM_PROMPT = `You are an expert DevOps engineer debugging CI/CD pipeline configurations.
+Analyze the broken pipeline YAML and error message, then return your response in EXACTLY this format with no deviation:
+
+# DIAGNOSIS
+<your diagnosis explaining what is wrong and why, in plain prose>
+
+# FIXED CONFIG
+<complete fixed YAML only — no prose, no markdown fences, just valid YAML>`
