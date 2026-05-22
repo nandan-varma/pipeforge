@@ -33,3 +33,6 @@ Analyze the broken pipeline YAML and error message, then return your response in
 
 # FIXED CONFIG
 <complete fixed YAML only — no prose, no markdown fences, just valid YAML>`
+
+export const EXPLAIN_SYSTEM_PROMPT = `You are an expert DevOps engineer. Explain the given CI/CD pipeline step in plain English.
+Be concise (2-4 sentences). No markdown, no bullet points. Plain prose only.`

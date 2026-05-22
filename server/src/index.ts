@@ -5,6 +5,7 @@ import { migrate } from './db/migrate.js'
 import generateRoute from './routes/generate.js'
 import migrateRoute from './routes/migrate.js'
 import debugRoute from './routes/debug.js'
+import explainRoute from './routes/explain.js'
 
 await migrate()
 
@@ -19,6 +20,7 @@ await fastify.register(
     await app.register(generateRoute)
     await app.register(migrateRoute)
     await app.register(debugRoute)
+    await app.register(explainRoute)
   },
   { prefix: '/api' }
 )
