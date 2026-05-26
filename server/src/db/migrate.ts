@@ -22,9 +22,21 @@ export async function migrate() {
       starred INTEGER DEFAULT 0,
       created_at TEXT DEFAULT (datetime('now'))
     )`,
+    `CREATE TABLE IF NOT EXISTS generation_history (
+      id TEXT PRIMARY KEY,
+      mode TEXT NOT NULL,
+      platform TEXT NOT NULL,
+      input_prompt TEXT,
+      input_yaml TEXT,
+      output_yaml TEXT NOT NULL,
+      duration_ms INTEGER,
+      token_count INTEGER,
+      created_at TEXT DEFAULT (datetime('now'))
+    )`,
     `CREATE INDEX IF NOT EXISTS idx_saved_configs_platform ON saved_configs(platform)`,
     `CREATE INDEX IF NOT EXISTS idx_saved_configs_mode ON saved_configs(mode)`,
     `CREATE INDEX IF NOT EXISTS idx_saved_configs_starred ON saved_configs(starred)`,
+    `CREATE INDEX IF NOT EXISTS idx_history_created ON generation_history(created_at)`,
   ]
 
   for (const stmt of statements) {
