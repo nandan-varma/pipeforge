@@ -17,6 +17,10 @@ export default async function generateRoute(fastify: FastifyInstance) {
       platform: string
     }
 
+    if (!prompt?.trim() || !platform) {
+      return reply.code(400).send({ error: 'prompt and platform are required' })
+    }
+
     const send = setupSse(reply)
     const historyId = nanoid()
     const startMs = Date.now()
