@@ -16,7 +16,8 @@ export interface AiStreamParams {
 
 export async function streamCompletion(
   params: AiStreamParams,
-  callbacks: StreamCallbacks
+  callbacks: StreamCallbacks,
+  signal?: AbortSignal
 ): Promise<void> {
   const stream = client.messages.stream({
     model: 'claude-sonnet-4-5',
@@ -29,6 +30,10 @@ export async function streamCompletion(
       },
     ],
     messages: [{ role: 'user', content: params.userMessage }],
+  })
+
+  signal?.addEventListener('abort', () => {
+    try { stream.controller.abort() } catch (_) { /* ignore */ }
   })
 
   let fullText = ''
@@ -45,6 +50,7 @@ export async function streamCompletion(
       outputTokens: final.usage.output_tokens,
     })
   } catch (err) {
+    if ((err as Error).name === 'AbortError') return
     callbacks.onError(err instanceof Error ? err : new Error(String(err)))
   }
 }
