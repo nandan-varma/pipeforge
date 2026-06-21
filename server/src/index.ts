@@ -13,7 +13,7 @@ await migrate()
 const fastify = Fastify({ logger: { level: 'info' } })
 
 await fastify.register(cors, {
-  origin: 'http://localhost:5173',
+  origin: ['http://localhost:5173', 'http://localhost:4173'],
 })
 
 await fastify.register(
