@@ -63,7 +63,7 @@ export function PromptPanel({ onGenerate, onCancel, streaming, initialPlatform, 
                 type="checkbox"
                 checked={extras.includes(extra.id)}
                 onChange={() => toggleExtra(extra.id)}
-                className="rounded border-gray-600 bg-gray-800 text-brand-500 focus:ring-brand-500 focus:ring-offset-gray-900"
+                className="rounded-sm border-gray-600 bg-gray-800 text-brand-500 focus:ring-brand-500 focus:ring-offset-gray-900"
               />
               <span className="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
                 {extra.label}

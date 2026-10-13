@@ -35,7 +35,7 @@ export function DownloadButton({ yaml, platform, className }: DownloadButtonProp
     <button
       onClick={handleDownload}
       title="Download pipeline file"
-      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-sm bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-gray-100 transition-colors ${className ?? ''}`}
+      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-sm bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-gray-100 transition-colors ${className ?? ''}`}
     >
       <Download size={14} />
       Download

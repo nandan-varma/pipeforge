@@ -47,7 +47,7 @@ export function ErrorInput({
           onChange={(e) => onErrorChange(e.target.value)}
           rows={4}
           placeholder="Paste the error output from your CI/CD system…"
-          className="w-full px-3 py-2.5 rounded-lg bg-gray-800 border border-gray-700 text-red-300 placeholder-gray-500 focus:outline-none focus:border-red-500 resize-y text-sm font-mono"
+          className="w-full px-3 py-2.5 rounded-lg bg-gray-800 border border-gray-700 text-red-300 placeholder-gray-500 focus:outline-hidden focus:border-red-500 resize-y text-sm font-mono"
         />
       </div>
 
@@ -58,7 +58,7 @@ export function ErrorInput({
           value={context}
           onChange={(e) => onContextChange(e.target.value)}
           placeholder="E.g: Failing on push to feature branch, works on main"
-          className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm"
+          className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-hidden focus:border-brand-500 text-sm"
         />
       </div>
 

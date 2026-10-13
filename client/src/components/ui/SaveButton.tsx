@@ -49,7 +49,7 @@ function SaveModal({ yaml, mode, platform, inputPrompt, inputYaml, onClose }: Sa
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div className="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl w-full max-w-md p-6">
@@ -67,7 +67,7 @@ function SaveModal({ yaml, mode, platform, inputPrompt, inputYaml, onClose }: Sa
           onKeyDown={(e) => e.key === 'Enter' && handleSave()}
           placeholder="Pipeline name…"
           autoFocus
-          className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm mb-4"
+          className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-hidden focus:border-brand-500 text-sm mb-4"
         />
 
         {status === 'error' && (
@@ -103,7 +103,7 @@ export function SaveButton({ yaml, mode, platform, inputPrompt, inputYaml, class
       <button
         onClick={() => setShowModal(true)}
         title="Save pipeline"
-        className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-sm bg-brand-600 text-white hover:bg-brand-700 transition-colors ${className ?? ''}`}
+        className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-sm bg-brand-600 text-white hover:bg-brand-700 transition-colors ${className ?? ''}`}
       >
         <Save size={14} />
         Save

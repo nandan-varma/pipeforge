@@ -17,7 +17,7 @@ export function StackSelector({ onAdd }: StackSelectorProps) {
           <button
             key={chip}
             onClick={() => onAdd(chip)}
-            className="px-2 py-1 rounded text-xs font-mono bg-gray-800 text-gray-400 border border-gray-700 hover:border-brand-500 hover:text-brand-400 transition-colors"
+            className="px-2 py-1 rounded-sm text-xs font-mono bg-gray-800 text-gray-400 border border-gray-700 hover:border-brand-500 hover:text-brand-400 transition-colors"
           >
             {chip}
           </button>

@@ -25,7 +25,7 @@ interface FullConfig extends Config {
 function PlatformBadge({ platform }: { platform: string }) {
   const plat = getPlatform(platform)
   if (!plat) return null
-  return <span className={`px-2 py-0.5 rounded text-xs font-medium ${plat.color}`}>{plat.label}</span>
+  return <span className={`px-2 py-0.5 rounded-sm text-xs font-medium ${plat.color}`}>{plat.label}</span>
 }
 
 function ModeBadge({ mode }: { mode: string }) {
@@ -35,7 +35,7 @@ function ModeBadge({ mode }: { mode: string }) {
     debug: 'bg-red-900 text-red-200',
   }
   return (
-    <span className={`px-2 py-0.5 rounded text-xs font-medium capitalize ${colors[mode] ?? 'bg-gray-800 text-gray-400'}`}>
+    <span className={`px-2 py-0.5 rounded-sm text-xs font-medium capitalize ${colors[mode] ?? 'bg-gray-800 text-gray-400'}`}>
       {mode}
     </span>
   )
@@ -52,7 +52,7 @@ function ViewModal({ config, onClose }: { config: FullConfig; onClose: () => voi
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xs p-6"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div className="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl w-full max-w-3xl flex flex-col max-h-[85vh]">
@@ -67,7 +67,7 @@ function ViewModal({ config, onClose }: { config: FullConfig; onClose: () => voi
             <DownloadButton yaml={config.outputYaml} platform={config.platform} />
             <button
               onClick={loadIntoEditor}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded text-sm bg-brand-600 text-white hover:bg-brand-700 transition-colors"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm text-sm bg-brand-600 text-white hover:bg-brand-700 transition-colors"
             >
               <ExternalLink size={14} />
               Load into editor
@@ -124,7 +124,7 @@ function ConfigCard({
       </div>
 
       {config.outputYamlPreview && (
-        <pre className="text-xs text-gray-500 font-mono bg-gray-950 rounded p-2 overflow-hidden max-h-16 leading-relaxed">
+        <pre className="text-xs text-gray-500 font-mono bg-gray-950 rounded-sm p-2 overflow-hidden max-h-16 leading-relaxed">
           {config.outputYamlPreview}
         </pre>
       )}
@@ -194,7 +194,7 @@ export function SavedPage() {
           type="text"
           placeholder="Search configs…"
           onChange={(e) => setFilter(f => ({ ...f, search: e.target.value || undefined }))}
-          className="px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm w-64"
+          className="px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-hidden focus:border-brand-500 text-sm w-64"
         />
         <button
           onClick={() => setFilter(f => ({ ...f, starred: f.starred ? undefined : true }))}
